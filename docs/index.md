@@ -1,11 +1,11 @@
 
-# GIS 1 {: .page_title}
+# DPFS {: .page_title}
 
 Předmět vás seznámí se základy tzv. __geografických informačních systémů__ (GIS). GIS je soubor nástrojů sloužících ke __sběru__, __správě__, __analýze__ a __vizualizaci__ geografických dat. Umožňuje efektivně pracovat s prostorovými informacemi, což zahrnuje __mapy__, __satelitní snímky__, __adresy__, __topografické údaje__ a mnoho dalšího. Dokáže provádět složité analýzy, identifikovat vzory, a tím __lépe porozumět geografickým jevům a vztahům__.
 
 GIS má široké uplatnění, od __městského plánování__, přes __správu přírodních zdrojů__ až po __krizový management__. Je nepostradatelným nástrojem pro efektivní rozhodování a řízení v různých odvětvích a pomáhá lépe pochopit složité geografické souvislosti.
 
-GIS 1 je v tomto tématu úvodním kurzem. Zatímco přednášky vás provedou základní teorií, cvičení se věnují praktickému ovládání GIS software – zejména porozumění práce s daty a provádění jednodušších analýz. Během výuky je používán software __:simple-arcgis: Esri ArcGIS Pro__{: style="white-space: nowrap;"}, ke konci kurzu bude pak věnován prostor i možným alternativám (program __:simple-qgis: QGIS__).
+GIS 1 je v tomto tématu úvodním kurzem. Zatímco přednášky vás provedou základní teorií, cvičení se věnují praktickému ovládání GIS software – zejména porozumění práce s daty a provádění jednodušších analýz. Během výuky je používán software __:simple-arcgis: Esri ArcGIS Pro__{: style="white-space: nowrap;"}.
 
 <h2 style="text-align:center;">Naučíte se</h2>
 <!-- styl je zde pridany HTML tagem (ne pomoci '##'), aby se text neobjevil v tabulce obsahu vlevo na strance -->
@@ -34,15 +34,7 @@ GIS 1 je v tomto tématu úvodním kurzem. Zatímco přednášky vás provedou z
 
 -   :material-vector-difference:{ .xl }
 
-    základy datové __topologie__
-
--   :octicons-share-16:{ .xl }
-
     __sdílet__ data prostřednictvím webu (systém _ArcGIS Online_, webové mapové aplikace)
-
--   :simple-qgis:{ .xl }
-
-    získat základy ovládání __alternativního GIS software__ (_QGIS_)
 
 
 </div>
@@ -75,27 +67,20 @@ GIS 1 je v tomto tématu úvodním kurzem. Zatímco přednášky vás provedou z
 účast doporučená
 {: style="opacity:50%;margin-top:0;"}
 
-![](https://geomatics.fsv.cvut.cz/wp-content/uploads/2022/01/03-edit_export@0.5x-2.jpg){: .off-glb .no-filter style="height: 1.5em; vertical-align: -.4em; clip-path: circle();"} 
-[__prof. Ing. Lena Halounová, CSc.__](https://geomatics.fsv.cvut.cz/employees/lena-halounova/)
+![](https://geomatics.fsv.cvut.cz/wp-content/uploads/2022/01/03-edit_export@0.5x-1.jpg){: .off-glb .no-filter style="height: 1.5em; vertical-align: -.4em; clip-path: circle();"} 
+[__prof. Ing. Jiří Cajthaml, Ph.D.__](https://geomatics.fsv.cvut.cz/employees/jiri-cajthaml/)
 
-1. Definice GIS, informatika, základní pojmy, aplikační oblasti GIS, prostor, topologie, historie GIS
-2. Reálný svět × GIS, model v GIS, vztahy objektů, typy modelů, geometrické typy objektů, rozlišovací schopnost
-3. Geografická poloha v GIS, prostorové vztahy, atributy
-4. Čas v GIS, modelování, druhy modelů, chyby v modelování v GIS
-5. Vektorový a rastrový GIS, datová struktura
-6. Rastrový GIS, atributová data
-7. Vektorový GIS, druhy objektů
-8. Geometrické a topologické vlastnosti objektů ve vektorovém GIS
-9. Vektorová a rastrová reprezentace prostorových objektů
-10. Rastrová reprezentace prostorových objektů, způsob ukládání rastrových objektů
+1. Úvod do gis, základní principy, datové modely, topologie, zdroje dat (17.2.)
+2. Analýza dat v gis, prostorové i atributové dotazy, analytické funkce pro vektorová i rastrová data (3.3.)
+3. Významné datové sady v ČR, významné geoportály, webové mapové služby (17.3.)
 
 ## Harmonogram {: style="margin-bottom:0;"}
-semestr LETNÍ 2024/2025
+semestr LETNÍ 2026/2027
 {: style="opacity:50%;margin-top:0;"}
 
 
-[![](./assets/index/schedule.svg#only-light){.off-glb .no-filter}](https://kos.cvut.cz/schedule/course/1551GIS/semester/B232){target="_blank"}
-[![](./assets/index/schedule_dark.svg#only-dark){.off-glb .no-filter}](https://kos.cvut.cz/schedule/course/1551GIS/semester/B232){target="_blank"}
+[![](./assets/index/schedule.png#only-light){.off-glb .no-filter width=500 height=375}](https://portal.fsv.cvut.cz/rozvrh/predmet/155DPFS){target="_blank"}
+[![](./assets/index/schedule.png#only-dark){.off-glb .no-filter width=500 height=375}](https://portal.fsv.cvut.cz/rozvrh/predmet/155DPFS){target="_blank"}
 
 ---
 
