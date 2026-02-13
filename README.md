@@ -1,6 +1,6 @@
-# 155GIS1
+# 155DPFS
 
-[Project Homepage](https://k155cvut.github.io/gis-1/)
+[Project Homepage](https://k155cvut.github.io/dpfs/)
 
 [MkDocs Material dokumentace](https://squidfunk.github.io/mkdocs-material/)
 
@@ -39,11 +39,11 @@
 
 1. Naklonování repozitáře na lokální zařízení (GitHub Desktop / GitHub CLI - nutná instalace)
    ```
-   git clone https://github.com/k155cvut/gis-1.git
+   git clone https://github.com/k155cvut/dpfs.git
    ```
 2. Otevřít naklonovanou složku ve VSCode
    ```
-   cd gis-1
+   cd dpfs
    code .
    ```
 3. Otevřít terminál ve VSCode (CTRL + SHIT + ;)
