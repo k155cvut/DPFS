@@ -3,7 +3,7 @@ icon: material/numeric-1-box
 title: Cvičení 1
 ---
 
-# Úvod do práce v prostředí ArcGIS, prostorová data, datové zdroje, atributová tabulka
+# Úvod do práce v prostředí ArcGIS, prostorová data, datové zdroje, atributová tabulka, atributové dotazy
 
 ## Cíl cvičení
 
@@ -11,6 +11,7 @@ title: Cvičení 1
 - Přidávání dat do mapy a ovládání mapy
 - Jak získat data pro práci v GIS
 - Význam atributové tabulky v GIS
+- Selekce prvků podle atributů
 
 <hr class="level-1">
 
@@ -395,37 +396,6 @@ __&nbsp;__{style="color:#c22521;" .icon-exclm .no-dec}__Uložení editací__: na
 
 <hr class="level-1">
 
-## Vektorová a rastrová prostorová data
-
-<div class="grid cards" markdown>
-
--   :material-vector-polyline:{ .lg .middle } __Vektorová data__
-
-    ---
-
-    Tvořena __vrcholy__ (Vertices) a __cestami__ (Paths) – ty jsou určeny skutečnými souřadnicemi
-
-    Podrobnost je určena __podrobností souřadnic vrcholů__
-
-    Vhodné pro __diskrétně rozložená data__ (např. poloha bodů, kategorie pokrytí půdy)
-
-    Možné problémy s __topologií__ (mezery a překryvy)
-
-
--   :material-grid:{ .lg .middle } __Rastrová data__<span style="font-size:60%;font-style:italic;vertical-align:10%;margin-left:15px;color:#888">součástí budoucích cvičení</span>
-
-    ---
-
-    Tvořena pravidelnou mřížkou __pixelů__ – ty jsou určeny pixelovými souřadnicemi (pořadí řádku/sloupce)
-
-    Podrobnost je určena __velikostí pixelu__ (v metrech)
-
-    Vhodné pro jevy měnící se __spojitě__ (např. model terénu, znečištění ovzduší) i __diskrétně__, dále pak __obrazová data__ (např. satelitní)
-
-</div>
-
-<hr class="level-1">
-
 ## Atributové dotazy
 
 Atributový dotaz (Attribute Query) je metoda výběru/filtrace prvků na základě **hodnot jejich atributů**. Doplňuje tak metodu [interaktivního výběru prvků](/cviceni/cviceni1/#select-tool) z 1. cvičení. Základem je pravidlo pro výběr – tzv. **výraz** (Expression). ArcGIS Pro umožňuje sestavovat výrazy interaktivně pomocí dialogu, nicméně pro využití plného potenciálu výrazů je vhodné využít kód v jazyce _SQL_.
@@ -471,6 +441,8 @@ __Doplňkové zdroje:__
 [<span>pro.arcgis.com</span><br>ArcGIS Pro keyboard shortcuts](https://pro.arcgis.com/en/pro-app/latest/get-started/arcgis-pro-keyboard-shortcuts.htm){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
 [<span>:octicons-file-16: PDF</span><br>ArcGIS Pro shortcuts](https://www.esri.com/content/dam/esrisites/en-us/media/pdf/g526942-arcgis-pro-kybrd-shrtct-FINAL.pdf){ .md-button .md-button--primary .server_name target="_blank"}
 {: .button_array}
+
+<hr class="level-1">
 
 ## Úlohy k procvičení
 

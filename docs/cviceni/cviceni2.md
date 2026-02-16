@@ -8,8 +8,38 @@ title: Cvičení 2
 ## Cíl cvičení
 
 - Vysvětlení rozdílu mezi vektorovými a rastrovými GIS daty
-- Selekce prvků podle atributů
 - Selekce prvků na základě vzájemných prostorových vztahů
+
+<hr class="level-1">
+
+## Vektorová a rastrová prostorová data
+
+<div class="grid cards" markdown>
+
+-   :material-vector-polyline:{ .lg .middle } __Vektorová data__
+
+    ---
+
+    Tvořena __vrcholy__ (Vertices) a __cestami__ (Paths) – ty jsou určeny skutečnými souřadnicemi
+
+    Podrobnost je určena __podrobností souřadnic vrcholů__
+
+    Vhodné pro __diskrétně rozložená data__ (např. poloha bodů, kategorie pokrytí půdy)
+
+    Možné problémy s __topologií__ (mezery a překryvy)
+
+
+-   :material-grid:{ .lg .middle } __Rastrová data__<span style="font-size:60%;font-style:italic;vertical-align:10%;margin-left:15px;color:#888">součástí budoucích cvičení</span>
+
+    ---
+
+    Tvořena pravidelnou mřížkou __pixelů__ – ty jsou určeny pixelovými souřadnicemi (pořadí řádku/sloupce)
+
+    Podrobnost je určena __velikostí pixelu__ (v metrech)
+
+    Vhodné pro jevy měnící se __spojitě__ (např. model terénu, znečištění ovzduší) i __diskrétně__, dále pak __obrazová data__ (např. satelitní)
+
+</div>
 
 <hr class="level-1">
 
@@ -195,56 +225,6 @@ __Prostorový dotaz__ (Spatial Query) je metoda výběru/filtrace prvků jedné 
 
 ## Úlohy k procvičení
 
-!!! task-fg-color "Úlohy k atributovým dotazům"
-
-    K řešení následujích úloh použijte datovou sadu [ArcČR
-    500](../../data/#arccr-500) verzi 3.3 dostupnou na disku *S* ve složče
-    ``K155\Public\data\GIS\ArcCR500 3.3``. Zde také najdete souboru s
-    popisem dat ve formátu PDF.
-
-    1. Kolik je v ČR rybníků?
-
-    2. Jaká je celková délka (v km) přirozených vodních toků v ČR?
-
-    3. Jaká je průměrná nadmořská výška (v m) vodních nádrží v ČR?
-
-    4. Kolik silnic v ČR má více než dva jizdní pruhy?
-
-    5. Jaká je délka (v km) dálnic v ČR, které mají šest jízdních pruhů?
-
-    6. Kolik železničních stanic v ČR obsahuje ve svém názvu předložku 'nad'?
-
-    7. Jaká je celková plocha (v km^2^) sídel v ČR u kterých jejich název začíná na písmeno 'K'?
-
-    8. Ve které obci Ústeckého kraje je největší nezaměstnanost a kolik to je?
-
-    9. Najděte obec v ČR, kde je nejvyšší poměr mezi muži a ženami a kolik to je?
-
-    10. V kolika obcích v ČR převyšuje počet sňatků počet rozvodů. V jaké
-        obci je počet sňatků nejvyšší vzhledem k aktuálnímu počtu
-        obyvatel?
-    
-    11. Jaká je průměrná hodnota nezaměstnanosti v ORP Beroun?
-
-    12. Kolik katastrálních území spadá do oblasti s kódem LAU1 'CZ0327' a
-        jakou mají celkovou výměru (v km^2^)?
-
-    13. V kolika případech se shoduje název obce s názvem katastrálního území?
-
-    14. Kolik katastrálních území začíná na písmeno 'R' a má přesně tři znaky ve svém názvu?
-
-    15. Ve kterých krajích je míra nezaměstranosti mužů větší než u žen?
-
-    16. Jaká je celková délka silnic 1., 2. a 3. třídy?
-
-    17. Jaký název pro obec je nejfrekventovanější, kolik obcí s tímto názvem v ČR je?
-
-    18. Pro každý typ vodní plochy najděte nejvyšší nadmořskou výšku.
-
-    19. Jaký je poměr mezinárodních ku vnitrostátním letištím v ČR?
-
-    20. Který okres v ČR se skládá z největšího počtu obcí a kolik to je?
-
 !!! task-fg-color "Úlohy k prostorovým dotazům"
 
     K řešení následujích úloh použijte datovou sadu [ArcČR
@@ -298,6 +278,3 @@ __Prostorový dotaz__ (Spatial Query) je metoda výběru/filtrace prvků jedné 
         listech Základní mapy 1:50 000?
 
 <br><br><br><br><br>
-
-<!-- __:material-account-edit:{.lg .middle}VC__{style="font-size:70%;color:var(--md-code-fg-color);background-color:var(--md-code-bg-color);padding:.3em .5em;border-radius:.5rem;"}
-{align=center} -->
