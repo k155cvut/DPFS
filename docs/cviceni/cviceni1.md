@@ -472,28 +472,56 @@ __Doplňkové zdroje:__
 [<span>:octicons-file-16: PDF</span><br>ArcGIS Pro shortcuts](https://www.esri.com/content/dam/esrisites/en-us/media/pdf/g526942-arcgis-pro-kybrd-shrtct-FINAL.pdf){ .md-button .md-button--primary .server_name target="_blank"}
 {: .button_array}
 
-
-<!-- 
-<hr class="level-1">
-
 ## Úlohy k procvičení
 
-!!! task-fg-color "Úloha"
+!!! task-fg-color "Úlohy k atributovým dotazům"
 
-    - Zadání
-        - Zobrazte v mapovém okně zadané vrstvy z geoportálu, mapa musí mít __zadané měřítko__, __natočení__ a __projekci__ (souř. systém), vrstvy musí mít __správné pořadí__ a __výběrem označené zadané prvky__. Dále nad mapou zobrazte __vyskakovací okno__ (pop-up) zadaného prvku a správně určete __vzdálenost mezi zadanými prvky__.
-        - Použijte data z geoportálu &nbsp;[:material-open-in-new: Geoportal data.Brno](https://data.brno.cz/explore){ .md-button .md-button--primary .button_smaller target="_blank"}&nbsp; – konkrétně datovou vrstvu obsahující __`zastávky MHD`__ a __`trasy linek MHD`__, výstupní formát libovolný (doporučujeme __`Shapefile`__ nebo __`Souborová geodatabáze`__)
+    K řešení následujích úloh použijte datovou sadu [ArcČR
+    500](../../data/#arccr-500) verzi 3.3 dostupnou na disku *S* ve složče
+    ``K155\Public\data\GIS\ArcCR500 3.3``. Zde také najdete souboru s
+    popisem dat ve formátu PDF.
 
-    - Výstupy
-        - Screenshot mapy splňující všechny výše popsané vlastnosti
-        - Screenshot pop-upu nad zadaným prvkem
-        - Napsat vzdálenost mezi konkrétními dvěma prvky
+    1. Kolik je v ČR rybníků?
 
-    - Individuální zadání
-        - DODĚLAT
+    2. Jaká je celková délka (v km) přirozených vodních toků v ČR?
 
- -->
+    3. Jaká je průměrná nadmořská výška (v m) vodních nádrží v ČR?
+
+    4. Kolik silnic v ČR má více než dva jizdní pruhy?
+
+    5. Jaká je délka (v km) dálnic v ČR, které mají šest jízdních pruhů?
+
+    6. Kolik železničních stanic v ČR obsahuje ve svém názvu předložku 'nad'?
+
+    7. Jaká je celková plocha (v km^2^) sídel v ČR u kterých jejich název začíná na písmeno 'K'?
+
+    8. Ve které obci Ústeckého kraje je největší nezaměstnanost a kolik to je?
+
+    9. Najděte obec v ČR, kde je nejvyšší poměr mezi muži a ženami a kolik to je?
+
+    10. V kolika obcích v ČR převyšuje počet sňatků počet rozvodů. V jaké
+        obci je počet sňatků nejvyšší vzhledem k aktuálnímu počtu
+        obyvatel?
+    
+    11. Jaká je průměrná hodnota nezaměstnanosti v ORP Beroun?
+
+    12. Kolik katastrálních území spadá do oblasti s kódem LAU1 'CZ0327' a
+        jakou mají celkovou výměru (v km^2^)?
+
+    13. V kolika případech se shoduje název obce s názvem katastrálního území?
+
+    14. Kolik katastrálních území začíná na písmeno 'R' a má přesně tři znaky ve svém názvu?
+
+    15. Ve kterých krajích je míra nezaměstranosti mužů větší než u žen?
+
+    16. Jaká je celková délka silnic 1., 2. a 3. třídy?
+
+    17. Jaký název pro obec je nejfrekventovanější, kolik obcí s tímto názvem v ČR je?
+
+    18. Pro každý typ vodní plochy najděte nejvyšší nadmořskou výšku.
+
+    19. Jaký je poměr mezinárodních ku vnitrostátním letištím v ČR?
+
+    20. Který okres v ČR se skládá z největšího počtu obcí a kolik to je?
+
 <br><br><br><br><br>
-
-<!-- __:material-account-edit:{.lg .middle}VC__{style="font-size:70%;color:var(--md-code-fg-color);background-color:var(--md-code-bg-color);padding:.3em .5em;border-radius:.5rem;"}
-{align=center} -->
