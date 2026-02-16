@@ -2,8 +2,8 @@ site_name: DPFS (155DPFS)
 nav:
   - Charakteristika předmětu: index.md
   - Cvičení:
-      - Úvod do práce v prostředí ArcGIS, prostorová data, datové zdroje, atributová tabulka: cviceni/cviceni1.md
-      - Vektorová data, atributové dotazy, prostorové dotazy: cviceni/cviceni2.md
+      - Úvod do práce v prostředí ArcGIS, prostorová data, datové zdroje, atributová tabulka, atributové dotazy: cviceni/cviceni1.md
+      - Vektorová data, prostorové dotazy, prostorové funkce (geoprocessing): cviceni/cviceni2.md
       - Prostorové funkce (geoprocessing), spatial join: cviceni/cviceni3.md
       - Práce s externími daty (Excel, CSV), join: cviceni/cviceni4.md
   #    - Rastrová data, georeferencování: cviceni/cviceni5.md

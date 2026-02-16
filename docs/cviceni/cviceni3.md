@@ -197,3 +197,5 @@ Jakou finanční úsporu jste schopni svým návrhem zajistit, pokud by provoz j
   ![Mapa](../assets/cviceni3/culturemile.png "Mapa"){ width=600px }
   <figcaption>Výsledná vizualizace</figcaption>
 </figure>
+
+<br><br><br><br><br>
