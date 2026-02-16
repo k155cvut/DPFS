@@ -32,14 +32,48 @@ Následující přehled ukazuje nejpoužívanější nástroje prostorových fun
   <figcaption>Srovnání vstupních vrstev a výsledků operace pro různé nástroje prostorových funkcí</figcaption>
 </figure>
 
+<hr class="level-1">
 
+## Úlohy k procvičení
 
-## Použité datové podklady
+!!! task-fg-color "Úlohy"
 
-- [Pobočky](../assets/cviceni3/PobockyCP_PlzenskyKraj.zip) České pošty v Plzeňském kraji (bodová vrstva)
-- Obce ČR ([ArcČR 500](../../data/#arccr-500), polygonová vrstva)
+    K řešení **následujích** úloh použijte datovou sadu [ArcČR
+    500](../../data/#arccr-500) verzi 3.3 dostupnou na disku *S* ve složče
+    ``K155\Public\data\GIS\ArcCR500 3.3``. Zde také **najdete** souboru s
+    popisem dat ve formátu PDF.
 
-## Náplň cvičení
+    1. Jaká je výměra (v ha) bažin a rašelinišť ležících v lese. Kolik to
+       je procent z celkové výměry bažin a rašelinišť?
+       
+    2. Jaká je výměra (v km^2^) území omezeného pouze na ČR do 100 m od dálnic?
+
+    3. Kolik obcí v ČR leží celou svojí plochou do vzdálenosti 10 km od
+       řeky Labe. Jaký je celkový počet obyvatel těchto obcí?
+
+    4. Na kolika místech kříží dálnice, rychlostní silnice či silnice
+       1.třídy s železnicí. Kolik z těchto křížení leží do vzdálenosti 1km
+       od nejbližší železniční stanice?
+
+    5. Jaká je výměra území (v ha), na kterých leží les či vodní
+       plocha. Existuje území, které by odpovídalo současně oběma
+       podmínkám?
+
+    6. Vytvořte společnou datovou vrstvu pro letiště a železniční
+       stanice. Kolik objektů tato vrstva obsahuje?
+
+    7. Kolik procent z celkové výměry ČR činí uzemí, která jsou vzdálená
+       od nejbližšího rybníku více než 25 km?
+
+    8. Jaká je výměra uzemí ČR (v km^2^), která leží dále než 5 km od
+       nejbližší silnice a zároveň dále než 10 km od nejbližší železniční
+       stanice? Na území kterých obcí leží největší z hledaných lokalit?
+
+    9. Kolik procent území Jihočeského kraje tvoří vodní plochy?
+
+<hr class="level-1">
+
+## Úloha: Pobočky pošty
 
 Představte si, že pracujete jako GIS analytik pro Českou poštu a vaším úkolem je z důvodu úspor navrhnout řešení snížení počtu poboček. Snahou tohoto kroku je však i minimalizace negativních dopadů na obyvatele, proto bylo rozhodnuto o následujících podmínkách, které musíte ve svém návrhu dodržet:
 
@@ -48,6 +82,11 @@ Představte si, že pracujete jako GIS analytik pro Českou poštu a vaším úk
 3. Vzájemná vzdálenost poboček v jedné obci nebude nižší než 3 km vzdušnou čarou.
 
 Jakou finanční úsporu jste schopni svým návrhem zajistit, pokud by provoz jedné pobočky vycházel ročně na 2,5 milionu CZK? Pro zjednodušení budete úlohu řešit pouze v rámci Plzeňského kraje a ke každé pobočce přistupovat rovnocenně.
+
+## Použité datové podklady
+
+- [Pobočky](../assets/cviceni3/PobockyCP_PlzenskyKraj.zip) České pošty v Plzeňském kraji (bodová vrstva)
+- Obce ČR ([ArcČR 500](../../data/#arccr-500), polygonová vrstva)
 
 ## Pracovní postup
 
@@ -128,7 +167,7 @@ Jakou finanční úsporu jste schopni svým návrhem zajistit, pokud by provoz j
 
 **11**. Závěrem lze porovnat, jak rušení poboček České pošty v r. 2023 skutečně proběhlo; přehled naleznete např. [zde](https://www.seznamzpravy.cz/clanek/fakta-ceska-posta-zrusene-pobocky-seznam-mapa-231064). Celý problém je samozřejmě složitější, jelikož finální výběr ovlivnily další faktory jako priorita pobočky (hlavní vs. vedlejší), bezbariérovost, apod.
 
-## Domácí úloha: Kulturní míle
+## Úloha: Kulturní míle
 
 *Pracovní postup:*
 
@@ -156,40 +195,3 @@ Jakou finanční úsporu jste schopni svým návrhem zajistit, pokud by provoz j
   ![Mapa](../assets/cviceni3/culturemile.png "Mapa"){ width=600px }
   <figcaption>Výsledná vizualizace</figcaption>
 </figure>
-
-## Úlohy k procvičení
-
-!!! task-fg-color "Úlohy"
-
-    K řešení **následujích** úloh použijte datovou sadu [ArcČR
-    500](../../data/#arccr-500) verzi 3.3 dostupnou na disku *S* ve složče
-    ``K155\Public\data\GIS\ArcCR500 3.3``. Zde také **najdete** souboru s
-    popisem dat ve formátu PDF.
-
-    1. Jaká je výměra (v ha) bažin a rašelinišť ležících v lese. Kolik to
-       je procent z celkové výměry bažin a rašelinišť?
-       
-    2. Jaká je výměra (v km^2^) území omezeného pouze na ČR do 100 m od dálnic?
-
-    3. Kolik obcí v ČR leží celou svojí plochou do vzdálenosti 10 km od
-       řeky Labe. Jaký je celkový počet obyvatel těchto obcí?
-
-    4. Na kolika místech kříží dálnice, rychlostní silnice či silnice
-       1.třídy s železnicí. Kolik z těchto křížení leží do vzdálenosti 1km
-       od nejbližší železniční stanice?
-
-    5. Jaká je výměra území (v ha), na kterých leží les či vodní
-       plocha. Existuje území, které by odpovídalo současně oběma
-       podmínkám?
-
-    6. Vytvořte společnou datovou vrstvu pro letiště a železniční
-       stanice. Kolik objektů tato vrstva obsahuje?
-
-    7. Kolik procent z celkové výměry ČR činí uzemí, která jsou vzdálená
-       od nejbližšího rybníku více než 25 km?
-
-    8. Jaká je výměra uzemí ČR (v km^2^), která leží dále než 5 km od
-       nejbližší silnice a zároveň dále než 10 km od nejbližší železniční
-       stanice? Na území kterých obcí leží největší z hledaných lokalit?
-
-    9. Kolik procent území Jihočeského kraje tvoří vodní plochy?
