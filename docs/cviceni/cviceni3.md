@@ -106,7 +106,7 @@ Z [Geoprohlížeče ČÚZK](https://ags.cuzk.cz/geoprohlizec/) lze stáhnout da
 **3.** Ve druhé části funkce určíme souřadnicový systém mračna bodů. 
 
 <figure markdown>
-  ![Convert LAS](../assets/cviceni3/convert_las.png)
+  ![Convert LAS](../assets/cviceni3/convert_las.png){ width="300"}
   <figcaption>Hodnoty funkce Convert LAS</figcaption>
 </figure>
 
@@ -138,7 +138,7 @@ Z [Geoprohlížeče ČÚZK](https://ags.cuzk.cz/geoprohlizec/) lze stáhnout da
 **3.** Dále zvolíme výstupní adresář *Target Folder* a případně specifikujeme název výsledného mračna bodů či jeho kompresi.
 
 <figure markdown>
-  ![Colorize LAS](../assets/cviceni3/col_las.png)
+  ![Colorize LAS](../assets/cviceni3/col_las.png){ width="300"}
   <figcaption>Hodnoty funkce Colorize LAS</figcaption>
 </figure>
 
@@ -154,10 +154,10 @@ Z [Geoprohlížeče ČÚZK](https://ags.cuzk.cz/geoprohlizec/) lze stáhnout da
 
 **2.** Vstupními daty *Input LAS Dataset* jsou lasetová data ve formátu LAS. *Value Field* určuje hodnotu, na základě které se vypočte výstupní rastr. Jeho umístění určímě v parametru *Output Raster*. 
 
-**3.** Následně je nutné určit způsob interpolace (viz [cvičení 5](https://k155cvut.github.io/gis-2/cviceni/cviceni5/)). Důležitým parametrem je *Cell Size*, která určuje velikost pixelu (buňky) výstupního rastru. *Z factor* určuje hodnotu zploštění/zvýšení hodnot rastru. V základním nastavení jej ponecháme rovný 1.
+**3.** Následně je nutné určit způsob interpolace (viz [cvičení 5 GIS 2](https://k155cvut.github.io/gis-2/cviceni/cviceni5/)). Důležitým parametrem je *Cell Size*, která určuje velikost pixelu (buňky) výstupního rastru. *Z factor* určuje hodnotu zploštění/zvýšení hodnot rastru. V základním nastavení jej ponecháme rovný 1.
 
 <figure markdown>
-  ![LAS Dataset To Raster](../assets/cviceni3/las_tr.png)
+  ![LAS Dataset To Raster](../assets/cviceni3/las_tr.png){ width="300"}
   <figcaption>Hodnoty funkce LAS Dataset To Raster</figcaption>
 </figure>
 
