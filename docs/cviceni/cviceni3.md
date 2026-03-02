@@ -2,200 +2,170 @@
 icon: material/numeric-3-box
 title: Cvičení 3
 ---
+# Práce s digitálním modelem terénu
 
-# Prostorové funkce (geoprocessing), spatial join
+Ve cvičení se naučíte
+{: align=center style="font-size: 1.25rem; font-weight: bold; margin-bottom: 10px;"}
 
-## Cíl cvičení
+<style>
+    .smaller_padding li {padding:.4rem .8rem !important;}
+    .primary_color {color:var(--md-primary-fg-color);}
+</style>
 
-Seznámení se se základními geoprocessingovými nástroji v GIS v rámci řešení komplexní úlohy.
+<div class="grid cards smaller_padding" markdown>
+
+-   :material-terrain:{ .xxxl .middle }
+    {.middle style="display:table-cell;min-width:40px;padding-right:.8rem;"}
+
+    vytvořit __digitální model terénu__ v GIS včetně úpravy __symbologie__
+    {.middle style="display:table-cell;line-height:normal;"}
+
+-   :material-elevation-rise:{ .xxxl .middle }
+    {.middle style="display:table-cell;min-width:40px;padding-right:.8rem;"}
+    
+    zpracovat __LiDARová data__{: .primary_colorx} a následně je vizualizovat nebo použít v analýzách
+    {.middle style="display:table-cell;line-height:normal;"}
+</div>
+
+<hr class="level-1">
 
 ## Základní pojmy
+- **digitální model terénu (DMT)** – digitální reprezentace prostorových objektů (obecný pojem obsahující různé způsoby vyjádření terénního reiéfu nebo povrchu)
+- **digitální model reliéfu (DMR)** – digitální reprezentace zemského povrchu (NEbsahuje vegetaci a lidské stavby)
+- **digitální model povrchu (DMP)** – digitální reprezentace zemského povrchu (obsahuje vegetaci a lidské stavby, které jsou pevně spojené s reliéfem)
+- [**TIN**](https://pro.arcgis.com/en/pro-app/3.1/help/data/tin/tin-in-arcgis-pro.htm) – trojúhelníková nepravidelná síť, která nejlépe reprezentuje povrch jako celek
 
-- [**buffer**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/buffer.htm): Vytváří zóny okolo vstupních geografických prvků ve specifikované vzdálenosti. Tyto zóny mohou být využity například k analýze vlivu určitého objektu na své okolí.
-- [**clip**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/clip.htm): Vyřezává část jednoho datasetu na základě hranic jiného. Výsledkem je nový dataset obsahující pouze oblasti uvnitř klipu.
-- [**select**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/select.htm): Umožňuje vybrat prvky z datasetu, které splňují zadané podmínky, například atributové dotazy nebo prostorové kritérium.
-- [**intersect**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/intersect.htm): Kombinuje dvě nebo více vstupních vrstev a vytváří nové prvky v místech, kde se jejich geometrie překrývají.
-- [**dissolve**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/dissolve.htm): Agreguje prvky podle specifického atributu, čímž redukuje počet prvků a vytváří větší jednotky (např. sloučení polygonů stejného typu).
-- [**spatial join**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/spatial-join.htm): Kombinuje atributy dvou geografických vrstev na základě jejich prostorového vztahu (např. připojení údajů bodů k blízkým polygonům).
-- [**erase**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/erase.htm): Odstraňuje části jedné vrstvy, které se překrývají s druhou vstupní vrstvou, a ponechává zbytek geometrie.
-- [**union**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/union.htm): Kombinuje geometrie a atributy dvou nebo více vrstev do nové vrstvy. Výsledkem jsou oblasti, které reprezentují kombinaci všech vstupů.
-- [**remove overlap**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/remove-overlap-multiple.htm): Identifikuje a odstraňuje překrývající se oblasti mezi prvky v jedné vrstvě nebo mezi více vrstvami.
-- [**symmetrical difference**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/symmetrical-difference.htm): Vytváří novou vrstvu obsahující prvky, které jsou v jedné nebo druhé vstupní vrstvě, ale ne v jejich překryvu.
-- [**count overlapping features**](https://pro.arcgis.com/en/pro-app/latest/tool-reference/analysis/count-overlapping-features.htm): Počítá počet prvků, které se překrývají, a výsledek ukládá do nové vrstvy nebo atributové tabulky.
+???+ note "&nbsp;<span style="color:#448aff">Digitální modely terénu České republiky</span>"
+     - **DMP 1G** – Digitální model povrchu České republiky 1. generace (DMP 1G) představuje zobrazení území včetně staveb a rostlinného pokryvu ve formě nepravidelné sítě výškových bodů (TIN) s úplnou střední chybou výšky **0,4 m** pro přesně vymezené objekty (budovy) a **0,7 m** pro objekty přesně neohraničené (lesy a další prvky rostlinného pokryvu). Model vznikl z dat pořízených metodou leteckého laserového skenování výškopisu území České republiky v letech 2009 až 2013. 
+     - **DMR 4G** – Digitální model reliéfu České republiky 4. generace (DMR 4G) představuje zobrazení přirozeného nebo lidskou činností upraveného zemského povrchu v digitálním tvaru ve formě výšek diskrétních bodů v pravidelné síti (5 x 5 m) bodů o souřadnicích X,Y,H, kde H reprezentuje nadmořskou výšku ve výškovém referenčním systému Balt po vyrovnání (Bpv) s úplnou střední chybou výšky **0,3 m** v odkrytém terénu a **1 m** v zalesněném terénu. Model vznikl z dat pořízených metodou leteckého laserového skenování výškopisu území České republiky v letech 2009 až 2013.
+     - **DMR 5G** – Digitální model reliéfu České republiky 5. generace (DMR 5G) představuje zobrazení přirozeného nebo lidskou činností upraveného zemského povrchu v digitálním tvaru ve formě výšek diskrétních bodů v nepravidelné trojúhelníkové síti (TIN) bodů o souřadnicích X,Y,H, kde H reprezentuje nadmořskou výšku ve výškovém referenčním systému Balt po vyrovnání (Bpv) s úplnou střední chybou výšky **0,18 m** v odkrytém terénu a **0,3 m** v zalesněném terénu. Model vznikl z dat pořízených metodou leteckého laserového skenování výškopisu území České republiky v letech 2009 až 2013. Dokončen byl k 30. 6. 2016 na celém území ČR. (Zdroj: ČÚZK)
 
-<!-- <hr class="level-1">
+## Aplikace Analýzy výškopisu 
+Pro analýzu výškopisu ve webovém prostředí slouží mapová aplikace Analýzy výškopisu od Českého úřadu zeměměřického a katastrálního. Aplikace umožňuje provádějí základních výškových analýz nad daty DMP 1G, DMR 4G a DMR 5G. Pro každou datovou sadu nabízí několik rastrových funkcí (Stínovaný reliéf, Z-faktor apod.). Do rozhraní je možné přidat i vlastní data, a tedy zefektivnit používání aplikace v reálné praxi.
 
-Následující přehled ukazuje nejpoužívanější nástroje prostorových funkcí v ArcGIS Pro.
+[<span></span>https://ags.cuzk.cz/av/<br>Analýzy výškopisu ČÚZK](https://ags.cuzk.cz/av/){ .md-button .md-button--primary .button_larger .external_link_icon target="_blank"}
+{: .button_array}
 
 <figure markdown>
-  ![Prostorové funkce](../assets/cviceni3/prost_funkce_srovnani.png "Prostorové funkce")
-  <figcaption>Srovnání vstupních vrstev a výsledků operace pro různé nástroje prostorových funkcí</figcaption>
-</figure> -->
+  ![Analýzy výškopisu](../assets/cviceni3/av_cuzk.png){ width="900"}
+  <figcaption>Analýza pole viditelnosti ze zadaného bodu vypočteného nad DMR 5G</figcaption>
+</figure>
+
+## Vybrané zdroje výškopisných dat
+- [ČÚZK Geoprohlížeč](https://ags.cuzk.cz/geoprohlizec/)
+    * ZABAGED – [vrstevnice](https://ags.cuzk.cz/arcgis/rest/services/ZABAGED_VRSTEVNICE/MapServer), [DMP 1G](https://ags.cuzk.cz/arcgis2/rest/services/dmp1g/ImageServer), [DMR 4G](https://ags.cuzk.cz/arcgis2/rest/services/dmr4g/ImageServer),  [DMR 5G](https://ags.cuzk.cz/arcgis2/rest/services/dmr5g/ImageServer)
+    * INSPIRE – [nadmořská výška (grid)](https://ags.cuzk.cz/arcgis2/rest/services/INSPIRE_Nadmorska_vyska/ImageServer), [nadmořská výška (TIN)](https://ags.cuzk.cz/arcgis2/rest/services/INSPIRE_Nadmorska_vyska_TIN/MapServer)
+    * Geoportál Praha – [vrstevnice](https://geoportalpraha.cz/vyhledavani?topic=data&type=[opendata])
 
 <hr class="level-1">
 
-## Úlohy k procvičení
+## Souřadnicové systémy podporované v prohlížecích a stahovacích službách resortu ČÚZK
 
-!!! task-fg-color "Úlohy"
+Závazné geodetické referenční systémy na území ČR upravuje nařízení vlády č. 159/2023 Sb. v platném znění. 
 
-    K řešení **následujích** úloh použijte datovou sadu [ArcČR
-    500](../../data/#arccr-500) verzi 3.3 dostupnou na disku *S* ve složče
-    ``K155\Public\data\GIS\ArcCR500 3.3``. Zde také **najdete** souboru s
-    popisem dat ve formátu PDF.
+|     Název                         |     Kód EPSG    |     Poznámka                                                                                          |
+|-----------------------------------|:---------------:|-------------------------------------------------------------------------------------------------------|
+|     S-JTSK / Krovak East North    |     5514        |     použito Křovákovo zobrazení,   matem. orientace os, definováno od nultého poledníku Greenwiche    |
+|     WGS 84 (geographic 2D)        |     4326        |     použito zobrazení geografickými   souřadnicemi (také geografická projekce, nebo geographic 2D)    |
+|     WGS 84 / UTM zone 33N         |     32633       |     použito Mercatorovo válcové   konformní zobrazení (UTM zobrazení), základní poledník 15°          |
+|     WGS 84 / UTM zone 34N         |     32634       |     použito Mercatorovo válcové   konformní zobrazení, (UTM zobrazení), základní poledník 21°         |
+|     ETRS89 (geographic 2D)        |     4258        |     použito zobrazení geografickými   souřadnicemi (také geografická projekce, nebo geographic 2D)    |
+|     ETRS89 / TM33                 |     3045        |     použito Mercatorovo válcové   konformní zobrazení (UTM zobrazení), základní poledník 15°          |
+|     ETRS89 / TM34                 |     3046        |     použito Mercatorovo válcové   konformní zobrazení, (UTM zobrazení), základní poledník 21°         |
 
-    1. Jaká je výměra (v ha) bažin a rašelinišť ležících v lese. Kolik to
-       je procent z celkové výměry bažin a rašelinišť?
-       
-    2. Jaká je výměra (v km^2^) území omezeného pouze na ČR do 100 m od dálnic?
-
-    3. Kolik obcí v ČR leží celou svojí plochou do vzdálenosti 10 km od
-       řeky Labe. Jaký je celkový počet obyvatel těchto obcí?
-
-    4. Na kolika místech kříží dálnice, rychlostní silnice či silnice
-       1.třídy s železnicí. Kolik z těchto křížení leží do vzdálenosti 1km
-       od nejbližší železniční stanice?
-
-    5. Jaká je výměra území (v ha), na kterých leží les či vodní
-       plocha. Existuje území, které by odpovídalo současně oběma
-       podmínkám?
-
-    6. Vytvořte společnou datovou vrstvu pro letiště a železniční
-       stanice. Kolik objektů tato vrstva obsahuje?
-
-    7. Kolik procent z celkové výměry ČR činí uzemí, která jsou vzdálená
-       od nejbližšího rybníku více než 25 km?
-
-    8. Jaká je výměra uzemí ČR (v km^2^), která leží dále než 5 km od
-       nejbližší silnice a zároveň dále než 10 km od nejbližší železniční
-       stanice? Na území kterých obcí leží největší z hledaných lokalit?
-
-    9. Kolik procent území Jihočeského kraje tvoří vodní plochy?
+Podrobnější infromace ke [Křovákovu zobrazení](https://maps.fsv.cvut.cz/~cajthaml/vyuka/kar1/prednasky/KAR1_pr6.pdf) a [UTM](https://maps.fsv.cvut.cz/~cajthaml/vyuka/kar1/prednasky/KAR1_pr7.pdf) najdete v přednáškách Kartografie 1 (prof. Cajthaml).
 
 <hr class="level-1">
 
-## Úloha: Pobočky pošty
+## Zpracování LAS
 
-Představte si, že pracujete jako GIS analytik pro Českou poštu a vaším úkolem je z důvodu úspor navrhnout řešení snížení počtu poboček. Snahou tohoto kroku je však i minimalizace negativních dopadů na obyvatele, proto bylo rozhodnuto o následujících podmínkách, které musíte ve svém návrhu dodržet:
+## Základní pojmy
+- **[LiDAR](https://www.geosken.cz/co-je-lidar-a-jak-funguje/)** – metoda dálkového měření vzdálenosti na základě výpočtu doby šíření pulsu laserového paprsku odraženého od snímaného objektu
 
-1. Rušení poboček nebude probíhat v obcích s méně než 2500 obyvateli.
-2. V obcích nad 2500 obyvatel neklesne počet poboček pod 1.
-3. Vzájemná vzdálenost poboček v jedné obci nebude nižší než 3 km vzdušnou čarou.
-
-Jakou finanční úsporu jste schopni svým návrhem zajistit, pokud by provoz jedné pobočky vycházel ročně na 2,5 milionu CZK? Pro zjednodušení budete úlohu řešit pouze v rámci Plzeňského kraje a ke každé pobočce přistupovat rovnocenně.
+- **[LAS](https://pro.arcgis.com/en/pro-app/3.1/help/data/las-dataset/las-dataset-in-arcgis-pro.htm)** – datový formát mračna bodů (point cloud) získaných laserovým skenováním
 
 ## Použité datové podklady
+- [DMR 5G](../../data/#dmr-5g)
 
-- [Pobočky](../assets/cviceni3/PobockyCP_PlzenskyKraj.zip) České pošty v Plzeňském kraji (bodová vrstva)
-- Obce ČR ([ArcČR 500](../../data/#arccr-500), polygonová vrstva)
+- [ortofoto ČÚZK](https://ags.cuzk.cz/arcgis1/rest/services/ORTOFOTO/MapServer)
 
-## Pracovní postup
 
-**1.** Výběr obcí v Plzeňském kraji s více než 2500 obyvateli (atributový dotaz) a tvorba samostatné vrstvy selektovaných prvků.
+### Stažení dat z ČÚZK
+Z [Geoprohlížeče ČÚZK](https://ags.cuzk.cz/geoprohlizec/) lze stáhnout data laserového skenování (mračno bodů) pro Česko. Získání dat DMR 5G, DMR 4G či DMP 1G lze provést přes výběr daného podkladu v záložce *Produkty*. Dále po rozkliknutí ikony tří teček příslušné vrstvy v záložce *Seznam vrstev* je možné vybrat buď možnost   *Exportovat data* nebo *Stáhnout data (předpřipravené jednotky)*.
 
-<figure markdown>
-  ![Select](../assets/cviceni3/SELECT_obce.png "Select obce")
-  <figcaption>Atributový dotaz na vrstvu obcí</figcaption>
-</figure>
+???+ note "&nbsp;<span style="color:#448aff">Možnosti stažení laserových dat z ČÚZK</span>"
+     - **Exportovat data** – Touto možností lze data zaslat přímo na email. Zároveň je takto možné stáhnout více kladů dat najednou vlastním výběrem (nakreslením polygonu či nahráním vlastní vrstvy k výběru). Stažená data jsou ve formátu *LAS*.
 
-**2.** Výběr typu pobočky zavedením *Definition Query* (výraz: ZKRNAZ_DRU = 'pošta').
+     - **Stáhnout data (předpřipravené jednotky)** – Takto lze data stáhnout postupně dle předpřipravených kladů. Stažená data jsou ve formátu *LAZ*.
 
-<figure markdown>
-  ![DQ](../assets/cviceni3/DQ_posta.png "Definition Query pošty")
-  <figcaption>Definition Query pro vrstvu poboček pošty</figcaption>
-</figure>
+### Převod LAZ do LAS
+**1.** Jestliže získáme data ve formátu *ZLAS* nebo *LAZ*, je nutné mračno bodů v ArcGIS Pro konvertovat do formátu *LAS* pomocí funkce [*Convert LAS*](https://pro.arcgis.com/en/pro-app/latest/tool-reference/conversion/convert-las.htm). Takto převedná data již dokáže ArcGIS načíst.
 
-<figure markdown>
-  ![Map 1](../assets/cviceni3/MAP_pred-spatial-join.png "Mapa 1")
-  <figcaption>Vizualizace stavu nad podkladovou mapou</figcaption>
-</figure>
+**2.** Do parametru *Input LAS* vložíme z disku vstupní soubor, který chceme převést. Zvolíme adresář výstupních dat *Target Folder* a případně nastavíme parametry převodu.
 
-**3.** Spatial join: k výběru obcí připojíme pobočky na základě jejich polohy. Zároveň přidáme nový atribut POCET_POBOCEK, který bude určen na základě sumy libovolného ze stávajících atributů vrstvy poboček (např. count(GmIID)).
+**3.** Ve druhé části funkce určíme souřadnicový systém mračna bodů. 
 
 <figure markdown>
-  ![Spatial join](../assets/cviceni3/SPATIALJOIN_obce-pobocky.png "Spatial join")
-  <figcaption>Spatial join</figcaption>
+  ![Convert LAS](../assets/cviceni3/convert_las.png)
+  <figcaption>Hodnoty funkce Convert LAS</figcaption>
 </figure>
 
-**4**. Následně zadáme atributový dotaz na vrstvu obcí, který vybere prvky s více než 1 pobočkou (POCET_POBOCEK *is greater than* 1).
+### Vizualizace LAS
+**1.** LAS data je možné zobrazit 2D v mapě nebo 3D ve scéně (ideálně v lokální scéně). Novou scénu vytvoříme v záložce *Insert* – *New Map* – *New Local Scene*.
 
 <figure markdown>
-  ![Select by attribute](../assets/cviceni3/SELECT_pocet-pobocek.png "Atributový dotaz")
-  <figcaption>Atributový dotaz na vrstvu obcí</figcaption>
+  ![Porovnání mapy a scény](../assets/cviceni3/map_sc.png){ width="900"}
+  <figcaption>Porovnání zobrazení LAS dat ve 2D mapě (vlevo) a ve 3D scéně (vpravo)</figcaption>
 </figure>
 
-**5**. V dalším kroku použijeme nástroj *CLIP* a vytvoříme novou vrstvu obsahující takové pobočky pošty, které se nacházejí v obcích s více než 1 pobočkou. Tím, že v předchozím kroku byla provedena selekce pouze některých prvků z vrstvy obcí, do funkce *CLIP* vstoupí pouze tento aktivní výběr.
+**2.** Různé možnosti vizualizace LAS jsou dostupné po vybrání vrstvy mračna bodů v záložce *LAS Dataset Layer*. Pod ikonou *Symbology* 
 
 <figure markdown>
-  ![Clip features](../assets/cviceni3/CLIP_pobocky.png "Clip")
-  <figcaption>Oříznutí vrstvy poboček aktivními prvky ve vrstvě obcí.</figcaption>
+  ![Symbologie LAS](../assets/cviceni3/las_s.png){ width="900"}
+  <figcaption>Symbologie LAS</figcaption>
+</figure>
+
+**3.** Výše zmíněné možnosti symbologie se dělí na tři typy: Vizualizace dle bodů, terénem či liniově. Bodové vizualizace nabízejí zobrazení barvy mračna bodů na základě jeho nadmořské výšky (*Elevation*) nebo klasifikace dat (*Class*). Mračno bodů je dále možné symbolizovat jako terén, přičemž barva může být určená nadmořskou výškou (*Elevation*), sklonem terénu (*Slope*) nebo sklonem ke světové straně (*Aspect*). Třetí možnost, vizualizace vrstvy pomocí linií, nabízí zobrazení vrstevnic (*Contour*) a hran (*Edges*).
+
+???+ note "&nbsp;<span style="color:#448aff">Zobrazení LAS Dataset Layer</span>"
+     V záložce *LAS Dataset Layer* (po vybrání příslušného mračna bodů v *Contents*) lze nejen nastavovat možnosti symbologie, ale také je možné určit hustotu zobrazovaných bodů (sekce *Point Thinning*) nebo filtrovat body (sekce *Filters*).
+
+### Texturovaný LAS
+**1.** V některých případech je výhodné mračno bodů obarvit (pokud již texturu neobsahuje v základním nastavení). Stažený LAS z ČÚZK lze otexturovat pomocí ortofota, které se stáhne podobně jako laserová data z [Geoprohlížeče ČÚZK](https://ags.cuzk.cz/geoprohlizec/). Důležité je stáhnout data se stejným kladem, což pro zmíněná data platí.
+
+**2.** Po stažení ortofota vyhledáme v *Geoprocessingu* funkci [*Colorize LAS*](https://pro.arcgis.com/en/pro-app/latest/tool-reference/3d-analyst/colorize-las.htm). Jako *Input Dataset* určímě mračno bodů. Do parametru *Input Image* vložíme vybrané ortofoto a zkontrolujeme přiřazení pásem snímku.
+
+**3.** Dále zvolíme výstupní adresář *Target Folder* a případně specifikujeme název výsledného mračna bodů či jeho kompresi.
+
+<figure markdown>
+  ![Colorize LAS](../assets/cviceni3/col_las.png)
+  <figcaption>Hodnoty funkce Colorize LAS</figcaption>
+</figure>
+
+**4.** Po provedení tohoto výpočtu se v nabídce *Symbology*, kterou jsme využívali při vizualizaci, zobrazí další možnost vizualizace mračna bodů – *RGB*. Po jejím zvolení se body obarví dle vstupního ortofota.
+
+<figure markdown>
+  ![Texturovaný LAS](../assets/cviceni3/text_las.png){ width="900"}
+  <figcaption>Texturovaný LAS</figcaption>
+</figure>
+
+### Vytvoření digitálního modelu terénu
+**1.** Data LiDARového skenování slouží jako podklad pro vytvoření digitálního modelu terénu. V ArcGISu Pro je možné převést LAS do rastru pomocí funkce [*LAS Dataset To Raster*](https://pro.arcgis.com/en/pro-app/latest/tool-reference/conversion/las-dataset-to-raster.htm).
+
+**2.** Vstupními daty *Input LAS Dataset* jsou lasetová data ve formátu LAS. *Value Field* určuje hodnotu, na základě které se vypočte výstupní rastr. Jeho umístění určímě v parametru *Output Raster*. 
+
+**3.** Následně je nutné určit způsob interpolace (viz [cvičení 5](https://k155cvut.github.io/gis-2/cviceni/cviceni5/)). Důležitým parametrem je *Cell Size*, která určuje velikost pixelu (buňky) výstupního rastru. *Z factor* určuje hodnotu zploštění/zvýšení hodnot rastru. V základním nastavení jej ponecháme rovný 1.
+
+<figure markdown>
+  ![LAS Dataset To Raster](../assets/cviceni3/las_tr.png)
+  <figcaption>Hodnoty funkce LAS Dataset To Raster</figcaption>
 </figure>
 
 <figure markdown>
-  ![Map 2](../assets/cviceni3/MAP_spatial-join-plus-dq.png "Mapa 2")
-  <figcaption>Vizualizace stavu po ořezu.</figcaption>
+  ![DMT z LAS](../assets/cviceni3/las_r.png){ width="900"}
+  <figcaption>Digitální model terénu vypočtený na základě laserových dat</figcaption>
 </figure>
 
-**6**. S využitím nástroje *BUFFER* vytvoříme obalovou zónu kolem každé pobočky o poloměru 3 km.
 
-<figure markdown>
-  ![Buffer](../assets/cviceni3/BUFFER_pobocky.png "Buffer")
-  <figcaption>Parametry nástroje BUFFER pro tvorbu obalové zóny (rádius 3 km)</figcaption>
-</figure>
-
-**7**. Nyní přistoupíme k vizuálnímu vyhodnocení poboček vhodných ke zrušení. Např. v Klatovech lze při dodržení zadaných kritérií zrušit právě 2 pobočky České pošty (zvýrazněné včetně svých obalových zón), resp. zachovat maximálně 2 pobočky (viz níže).
-
-<figure markdown>
-  ![Map 3](../assets/cviceni3/MAP_buffer-Klatovy.png "Mapa 3"){ width="500" }
-  <figcaption>Příklad poboček aspirujících na zrušení</figcaption>
-</figure>
-
-**8**. V atributové tabulce poboček vytvoříme pomocí *Add Field* pomocný atribut RUSENO (datový typ *short*, defaultní hodnota 0).
-
-<figure markdown>
-  ![Add field](../assets/cviceni3/AT_add-field.png "Přidání atributu")
-  <figcaption>Přidání nového pole do atributové tabulky</figcaption>
-</figure>
-
-**9**. Manuálně vybereme (pomocí *Select*) pobočky vyhovující kritériím zrušení změnou hodnoty atributu RUSENO na 1.
-
-**10**. Nyní je možné zobrazit rušené pobočky zavedením *Definition Query* (výraz RUSENO = 1) nebo naopak pobočky splňující podmínky, aby byly zachovány (výraz RUSENO = 0).
-
-<figure markdown>
-  ![Map 4](../assets/cviceni3/MAP_zachovane-pobocky.png "Mapa poboček")
-  <figcaption>Pobočky pošty, kterou mohou být zachovány.</figcaption>
-</figure>
-
-**11**. Závěrem lze porovnat, jak rušení poboček České pošty v r. 2023 skutečně proběhlo; přehled naleznete např. [zde](https://www.seznamzpravy.cz/clanek/fakta-ceska-posta-zrusene-pobocky-seznam-mapa-231064). Celý problém je samozřejmě složitější, jelikož finální výběr ovlivnily další faktory jako priorita pobočky (hlavní vs. vedlejší), bezbariérovost, apod.
-
-<hr class="level-1">
-
-## Úloha: Kulturní míle
-
-*Pracovní postup:*
-
-1.  Stáhněte si prostorová data (z OSM přes BBBike): Vyberte ohraničení kolem vaší univerzity (cca 2 km^2^), vyplňte formát, jméno a mail a stiskněte *Extract*. Odkaz na stažení vám bude zaslán na vaši e-mailovou adresu, jakmile bude proces online extrakce hotový.
-
-2.  Načtěte a vyberte data v aplikaci ArcGIS Pro: Do mapy importujte shapefile *points.shp*. Prozkoumejte atributovou tabulku, zejména pole *type*. Najděte a vyberte bod představující vaši univerzitu.
-
-3.  Prostorová analýza (část 1): Po výběru bodu (vaší univerzity) vytvořte pomocí geoprocessingového nástroje *Buffer* (metoda *planar*) kolem tohoto bodu obalovou zónu o velikosti 1 míle. Funkce zpracuje pouze 1 obalovou zónu kolem vybraného bodu, pokud je výběr aktivní.
-
-4.  Atributový dotaz: Proveďte *Select by Attributes* a vyhledejte body související s kulturou pomocí atributu *typ* (vyhledávání divadel, muzeí atd.). Vyberte všechny prvky v nejméně 5 různých kategoriích kultury a extrahujte tato data do geodatabáze projektu.
-
-5.  Prostorová analýza (část 2): Pomocí nástroje *Clip* extrahujte body (vrstva prvků obsahující pouze kulturní místa) v rámci mílové obalové zóny.
-
-6.  V této fázi byste měli mít kolem univerzity  zónu o velikosti 1 míle obsahující body zájmu související s kultury. Všechny ostatní prvky můžete z mapy odstranit.
-
-7.  Najděte vhodné symboly pro jednotlivé typy kulturních zařízení.
-
-8.  Vložte nový layout (*Insert Layout*) ve vybraném formátu a zvolte orientaci na šířku nebo na výšku.
-
-9.  Ve vlastnostech mapy nastavte vhodné referenční měřítko a případně omezte obsahu mapového okna pouze na obalovou zónu.
-
-10. Dokončete rozvržení: vložte mapové okno, přidejte nadpis, podnadpis, legendu a tiráž. Níže inspirace.
-
-<figure markdown>
-  ![Mapa](../assets/cviceni3/culturemile.png "Mapa"){ width=600px }
-  <figcaption>Výsledná vizualizace</figcaption>
-</figure>
 
 <br><br><br><br><br>

@@ -4,7 +4,7 @@ nav:
   - Cvičení:
       - Úvod do práce v prostředí ArcGIS, prostorová data, datové zdroje, atributová tabulka, atributové dotazy: cviceni/cviceni1.md
       - Vektorová data, prostorové dotazy, prostorové funkce (geoprocessing): cviceni/cviceni2.md
-  #    - Prostorové funkce (geoprocessing), spatial join: cviceni/cviceni3.md
+      - Práce s digitálním modelem terénu: cviceni/cviceni3.md
   #    - Práce s externími daty (Excel, CSV), join: cviceni/cviceni4.md
   #    - Rastrová data, georeferencování: cviceni/cviceni5.md
   #    - Vektorizace, tvorba geodatabáze, kontrola topologie: cviceni/cviceni6.md
