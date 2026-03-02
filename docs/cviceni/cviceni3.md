@@ -149,6 +149,27 @@ Z [Geoprohlížeče ČÚZK](https://ags.cuzk.cz/geoprohlizec/) lze stáhnout da
   <figcaption>Texturovaný LAS</figcaption>
 </figure>
 
+### Vytvoření vrstevnic z TIN/LAS
+
+**1.** Nejprve vytvoříme TIN z dat LiDARového skenování. V ArcGISu Pro je k tomu určena funkce [*LAS Dataset To TIN*](https://pro.arcgis.com/en/pro-app/latest/tool-reference/3d-analyst/las-dataset-to-tin.htm). 
+
+<figure markdown>
+  ![LAS Dataset To TIN](../assets/cviceni3/las_tin.png){ width="300"}
+  <figcaption>Hodnoty funkce LAS Dataset To TIN</figcaption>
+</figure>
+
+**2.** Následně je možné pževést TIN do vrstevnic funkcí [*Surface Contour*](https://pro.arcgis.com/en/pro-app/latest/tool-reference/3d-analyst/surface-contour.htm). Funkce také umožňuje přímý převod dat LAS na vrstevnice.
+
+<figure markdown>
+  ![LAS Dataset To TIN](../assets/cviceni3/surf_cont.png){ width="300"}
+  <figcaption>Parametry funkce Surface Contour</figcaption>
+</figure>
+
+<figure markdown>
+  ![Vrstevnice z TIN](../assets/cviceni3/contour.png){ width="900"}
+  <figcaption>Vrstevnice vytvořené z TIN</figcaption>
+</figure>
+
 ### Vytvoření digitálního modelu terénu
 **1.** Data LiDARového skenování slouží jako podklad pro vytvoření digitálního modelu terénu. V ArcGISu Pro je možné převést LAS do rastru pomocí funkce [*LAS Dataset To Raster*](https://pro.arcgis.com/en/pro-app/latest/tool-reference/conversion/las-dataset-to-raster.htm).
 
