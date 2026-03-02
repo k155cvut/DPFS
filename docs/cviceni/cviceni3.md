@@ -187,6 +187,22 @@ Z [Geoprohlížeče ČÚZK](https://ags.cuzk.cz/geoprohlizec/) lze stáhnout da
   <figcaption>Digitální model terénu vypočtený na základě laserových dat</figcaption>
 </figure>
 
+### Odečet výšek z digitálního modelu terénu
 
+**1.** Vytvoříme linii a necháme podél linie vygenerovat body ve zvolené vzdálenosti funkcí [*Generate Points Along Lines*](https://pro.arcgis.com/en/pro-app/3.4/tool-reference/data-management/generate-points-along-lines.htm). 
+
+<figure markdown>
+  ![Generate Points Along Lines](../assets/cviceni3/generate_pal.png){ width="300"}
+  <figcaption>Parametry funkce Generate Points Along Lines</figcaption>
+</figure>
+
+**2.** Nově vytvořené bodové vrstvě přiřadíme výšky z TIN/LAS/DMR funkcí [*Add Surface Information*](https://pro.arcgis.com/en/pro-app/3.5/tool-reference/spatial-analyst/add-surface-information.htm). Na obrázku níže je výška extrahována z TIN. 
+
+<figure markdown>
+  ![Add Surface Information](../assets/cviceni3/add_si.png){ width="300"}
+  <figcaption>Funkce Add Surface Information</figcaption>
+</figure>
+
+**3.** Do atributové tabulky přibyl nový atribut *Z* do kterého byla uložena výška z TIN. 
 
 <br><br><br><br><br>
