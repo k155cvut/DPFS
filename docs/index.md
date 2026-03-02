@@ -70,9 +70,9 @@ GIS 1 je v tomto tématu úvodním kurzem. Zatímco přednášky vás provedou z
 ![](https://geomatics.fsv.cvut.cz/wp-content/uploads/2022/01/03-edit_export@0.5x-1.jpg){: .off-glb .no-filter style="height: 1.5em; vertical-align: -.4em; clip-path: circle();"} 
 [__prof. Ing. Jiří Cajthaml, Ph.D.__](https://geomatics.fsv.cvut.cz/employees/jiri-cajthaml/)
 
-1. Úvod do gis, základní principy, datové modely, topologie, zdroje dat (17.2.)
-2. Analýza dat v gis, prostorové i atributové dotazy, analytické funkce pro vektorová i rastrová data (3.3.)
-3. Významné datové sady v ČR, významné geoportály, webové mapové služby (17.3.)
+1. [Úvod do gis, základní principy, datové modely, topologie, zdroje dat](assets/DPFS_2026_1.pdf) (17. 2.)
+2. [Analýza dat v gis, prostorové i atributové dotazy, analytické funkce pro vektorová i rastrová data](assets/DPFS_2026_2.pdf) (3. 3.)
+3. [Významné datové sady v ČR, významné geoportály, webové mapové služby](assets/DPFS_2026_3.pdf) (17. 3.)
 
 ## Harmonogram {: style="margin-bottom:0;"}
 semestr LETNÍ 2026/2027
