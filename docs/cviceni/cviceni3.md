@@ -205,4 +205,40 @@ Z [Geoprohlížeče ČÚZK](https://ags.cuzk.cz/geoprohlizec/) lze stáhnout da
 
 **3.** Do atributové tabulky přibyl nový atribut *Z* do kterého byla uložena výška z TIN. 
 
+### Viditelnostní analýza
+
+**1.** Viditelnostní analýza se provádí funkcí [*Geodesic Viewshed*](https://pro.arcgis.com/en/pro-app/3.4/tool-reference/spatial-analyst/viewshed-2.htm).
+
+<figure markdown>
+  ![Geodesic Viewshed](../assets/cviceni3/viewshed.png){ width="300"}
+  <figcaption>Nastavení funkce Geodesic Viewshed</figcaption>
+</figure>
+
+<figure markdown>
+  ![Porovnání mapy a scény Geodesic Viewshed](../assets/cviceni3/viewshed_3d.png){ width="900"}
+  <figcaption>Porovnání zobrazení Geodesic Viewshed ve 2D mapě (vlevo) a ve 3D scéně (vpravo)</figcaption>
+</figure>
+
+### Generování profilu
+
+**1.** Po nakreslení linie profilu se funkcí [*Stack Profile*](https://pro.arcgis.com/en/pro-app/latest/tool-reference/3d-analyst/stack-profile.htm) vygeneruje tabulka se atributem vzdálenosti od počátku a atributem výšky. 
+
+<figure markdown>
+  ![Stack Profile](../assets/cviceni3/stack_profile.png){ width="300"}
+  <figcaption>Aplikace funkce Stack Profile</figcaption>
+</figure>
+
+**2.** Následně je možné vygenerovat liniový graf profilu. Jako *Date or Number* se nastaví pole *FIRST_DIST* a *Numeric Field(s)* se nastaví *FIRST_Z*. Obdobně lze generovat graf v úloze *Odečet výšek z digitálního modelu terénu*.
+
+<figure markdown>
+  ![Volba liniového grafu](../assets/cviceni3/graf_stack.png){ width="450"}
+  <figcaption>Volba liniového grafu</figcaption>
+</figure>
+
+<figure markdown>
+  ![Liniový graf](../assets/cviceni3/graf.png){ width="900"}
+  <figcaption>Nastavení parametrů liniového grafu</figcaption>
+</figure>
+
+
 <br><br><br><br><br>
