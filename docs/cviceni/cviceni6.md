@@ -163,7 +163,7 @@ __:material-gas-burner: Připojení na rozvod plynu__
 - __Webovou mapu uložte__.
 
 <figure markdown>
-![](../assets/cviceni04/Mapa1_result.png){width=700px}
+![](../assets/cviceni6/Mapa1_result.png){width=700px}
 {align=center}
 <figcaption>ukázka výsledné webové mapy</figcaption></figure>
 
@@ -238,9 +238,7 @@ Dále zduplikujte jednu z vrstev stavebních objektů, kterou využijeme pro zob
     - možnost __zobrazit vyskakovací okna__ ponechte __jen u vrstvy obcí__, u zbývajících vrstev tuto možnost vypněte
     - u podkladové mapy můžete nastavit vhodnou míru průhlednosti __(16)__{title="nastavení průhlednosti podkladové mapy"}
 
-
-
-- __Webovou mapu uložte__ s názvem **Prijmeni_Jmeno_SGEA2026_Mapa2** a __nastavte sdílení v rámci oganizace__. __(23)__{title="ukázka"}
+- __Webovou mapu uložte__, potenciálně můžete __nastavit sdílení v rámci oganizace__. __(23)__{title="ukázka"}
 
 
 <figure markdown>
@@ -250,29 +248,29 @@ Dále zduplikujte jednu z vrstev stavebních objektů, kterou využijeme pro zob
 
 </div> <!-- pro anotace -->
 
-1.  ![](../assets/cviceni04/img01.png){ .no-filter width=700px} polygonová vrstva obcí "SGEA_obce_2025"
-2.  ![](../assets/cviceni04/obce_vyber.png){ .no-filter width=700px} nastavení filtru dle kódu obce
+1.  ![](../assets/cviceni6/img01.png){ .no-filter width=700px} polygonová vrstva obcí "SGEA_obce_2025"
+2.  ![](../assets/cviceni6/obce_vyber.png){ .no-filter width=700px} nastavení filtru dle kódu obce
 3.  ![](../assets/cviceni6/RUIAN_all.png){ .no-filter width=700px} vrstva "RÚIAN/StavebniObjekt"
-4.  ![](../assets/cviceni04/overlay.png){ .no-filter width=200px}<br> nastavení parametrů nástroje "Překrýt vrstvy"
-5.  ![](../assets/cviceni04/overlay_result.png){ .no-filter width=700px} výstup nástroje "Překrýt vrstvy" (stavební objekty jsou pouze uvnitř hranice obce)
+4.  ![](../assets/cviceni6/overlay.png){ .no-filter width=200px}<br> nastavení parametrů nástroje "Překrýt vrstvy"
+5.  ![](../assets/cviceni6/overlay_result.png){ .no-filter width=700px} výstup nástroje "Překrýt vrstvy" (stavební objekty jsou pouze uvnitř hranice obce)
 6.  ![](../assets/cviceni6/symbologie_kanalizace.png){ .no-filter width=700px} návrh symbologie stavebních objektů dle připojení na kanalizaci
-7.  ![](../assets/cviceni04/img07.png){ .no-filter width=700px} změna podkladové mapy (Základní topografická mapa)
-8.  ![](../assets/cviceni04/group_exclusive.png){ .no-filter width=700px} nastavení exkluzivní viditelnosti skupiny vrstev
+7.  ![](../assets/cviceni6/img07.png){ .no-filter width=700px} změna podkladové mapy (Základní topografická mapa)
+8.  ![](../assets/cviceni6/group_exclusive.png){ .no-filter width=700px} nastavení exkluzivní viditelnosti skupiny vrstev
 9.  __Příklad odevzdaného odkazu:__<br>https://ctuprague.maps.arcgis.com/apps/mapviewer/index.html?webmap=21df15ae2ca9458794a16a8fd9078b78
-10. ![](../assets/cviceni04/zjisteni_kodu_ORP.png){ .no-filter width=700px} zjištění kódu ORP
-11. ![](../assets/cviceni04/Mapa2_dissolve.png){ .no-filter width=700px} nastavení parametrů nástroje "Sloučit hranice"
-12. ![](../assets/cviceni04/overlay_rozsah_vrstva.png){ .no-filter width=700px} omezení výpočtu na rozsah vrstvy
-13. ![](../assets/cviceni04/RUIAN_meritko.png){ .no-filter width=700px} nastavení viditelného rozsahu polygonové vrstvy stavebních objektů
-14. ![](../assets/cviceni04/overlay_rozsah.png){ .no-filter width=700px} omezení výpočtu na rozsah mapového okna
+10. ![](../assets/cviceni6/zjisteni_kodu_ORP.png){ .no-filter width=700px} zjištění kódu ORP
+11. ![](../assets/cviceni6/Mapa2_dissolve.png){ .no-filter width=700px} nastavení parametrů nástroje "Sloučit hranice"
+12. ![](../assets/cviceni6/overlay_rozsah_vrstva.png){ .no-filter width=700px} omezení výpočtu na rozsah vrstvy
+13. ![](../assets/cviceni6/RUIAN_meritko.png){ .no-filter width=700px} nastavení viditelného rozsahu polygonové vrstvy stavebních objektů
+14. ![](../assets/cviceni6/overlay_rozsah.png){ .no-filter width=700px} omezení výpočtu na rozsah mapového okna
 15. ![](../assets/cviceni03/AGOL_ZTM.png){ .no-filter width=700px} přidání vrstvy jako podkladové mapy
-16. ![](../assets/cviceni04/basemap_transparency.png){ .no-filter width=700px} nastavení průhlednosti podkladové mapy
-17. ![](../assets/cviceni04/mapa_content.png){ .no-filter width=700px} správné pojmenování webové mapy a nastavení sdílení v rámci organizace
-18. ![](../assets/cviceni04/rekr_bod_ukazka.png){ .no-filter width=700px} bodová vrstva rekreačních objektů "Stav_objekty_rekr_BOD"
-19.  ![](../assets/cviceni04/Mapa2_filtr.png){ .no-filter width=700px} nastavení filtru dle názvu ORP
-20.  ![](../assets/cviceni04/dissolve_result.png){ .no-filter width=700px} výstup nástroje "Sloučit hranice" (hranice ORP)
-21.  ![](../assets/cviceni04/overlay_Mapa2.png){ .no-filter width=700px} nastavení parametrů nástroje "Překrýt vrstvy"
-22.  ![](../assets/cviceni04/overlay_result_Mapa2.png){ .no-filter width=700px} výstup nástroje "Překrýt vrstvy" (rekreační objekty jsou pouze uvnitř hranice ORP)
-23. ![](../assets/cviceni04/mapa2_content.png){ .no-filter width=700px} správné pojmenování webové mapy a nastavení sdílení v rámci organizace
+16. ![](../assets/cviceni6/basemap_transparency.png){ .no-filter width=700px} nastavení průhlednosti podkladové mapy
+17. ![](../assets/cviceni6/mapa_content.png){ .no-filter width=700px} správné pojmenování webové mapy a nastavení sdílení v rámci organizace
+18. ![](../assets/cviceni6/rekr_bod_ukazka.png){ .no-filter width=700px} bodová vrstva rekreačních objektů "Stav_objekty_rekr_BOD"
+19.  ![](../assets/cviceni6/Mapa2_filtr.png){ .no-filter width=700px} nastavení filtru dle názvu ORP
+20.  ![](../assets/cviceni6/dissolve_result.png){ .no-filter width=700px} výstup nástroje "Sloučit hranice" (hranice ORP)
+21.  ![](../assets/cviceni6/overlay_Mapa2.png){ .no-filter width=700px} nastavení parametrů nástroje "Překrýt vrstvy"
+22.  ![](../assets/cviceni6/overlay_result_Mapa2.png){ .no-filter width=700px} výstup nástroje "Překrýt vrstvy" (rekreační objekty jsou pouze uvnitř hranice ORP)
+23. ![](../assets/cviceni6/mapa2_content.png){ .no-filter width=700px} správné pojmenování webové mapy a nastavení sdílení v rámci organizace
 
 
 
