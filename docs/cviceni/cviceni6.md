@@ -254,51 +254,6 @@ __:material-gas-burner: Připojení na rozvod plynu__
 
 
 
-<hr class="level-1">
-
-## Výstupy cvičení
-
-Povinnými výstupy úlohy jsou __2 webové mapy__{.outlined}. Webové mapy uložte pod požadovanými názvy a nastavte sdílení položky na úroveň organizace. Tyto výstupy __není nutné odevzdat přes systém Moodle__.
-
-Termín pro odevzdání úlohy: __neděle 22. března, 23.59 hod__{.outlined} 
-
-Úloha je uznána, pokud webové mapy obsahují __všechny požadované náležitosti__ (viz níže).
-
-???+ note-grey "Požadované náležitosti odevzdaných výstupů"
-    __Mapa I__
-    
-    - zobrazuje pouze skupinu vrstev *"stavební objekty"* a vrstvu zobrazující hranice obce (ostatní vrstvy z mapy odstraňte)
-    - vrstvy jsou vhodně pojmenované (např. hranice obce, stavební objekty apod.)
-    - vrstva se stavebními objekty __omezena hranicí obce__, naopak žádné __stavební objekty nesmí chybět__,
-    - u skupiny vrstev rozlišující připojení na kanalizaci a plyn nastavená __exkluzivní viditelnost__ (nesmí být možné je zobrazit současně),
-    - __legenda se slovními popisy__ (nikoli s číselnými kódy),
-    - správná aplikace barevné stupnice
-    - podkladová mapa v S-JTSK – __Základní topografická mapa__ nebo __Ortofoto od Zeměměřického úřadu__,
-    - sdílení webové mapy nastaveno __"v rámci organizace"__, __bez správného sdílení k mapě nemá vyučující přístup a nedojde ke kontrole__{style="color:#c22521;" .icon-exclm .no-dec}
-
-    __Mapa II__
-    
-    - zobrazuje pouze vrstvu heat-map rekreačních objektů v zadané obci a vrstvu zobrazující rozsah obce (ostatní vrstvy z mapy odstraňte)
-    - vrstvy jsou vhodně pojmenované (např. hranice obce, rekreační objekty apod.)
-    - správná konfigurace vyskakovacího okna (vybrané atributy, sloupcový graf)
-    - možnost __zobrazit vyskakovací okna jen u vrstvy obcí__ (u zbývajících vrstev je tato možnost vypnutá)
-    - podkladová mapa v S-JTSK – __Základní topografická mapa__ nebo __Ortofoto od Zeměměřického úřadu__,
-    - sdílení webové mapy nastaveno __"v rámci organizace"__, __bez správného sdílení k mapě nemá vyučující přístup a nedojde ke kontrole__{style="color:#c22521;" .icon-exclm .no-dec}
-
-    
-    
-    
-
-
-### Opravy
-
-V případě, že odevzdaný výstup není správný, je vyučujícím __vrácen k opravě__. Výstup lze odevzdat po __maximálně jedné opravě__, v případě pozdního odevzdání či nesprávného výstupu po první opravě je úloha __trvale označena jako nesplněná__{style="color:#c22521;"}.
-
-[Tabulka hodnocení úloh](https://docs.google.com/spreadsheets/d/1oa_5s2p5B-eIXSad0H14NJTzTYX3YhDc9FUlwDHvrrc/edit?gid=1732083778#gid=1732083778){ .md-button .md-button--primary target="_blank"}
-{align=center}
-
-<br><br><br><br><br>
-
 
 <!--
 <style>
