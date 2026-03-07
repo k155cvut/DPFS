@@ -230,8 +230,6 @@ Dále zduplikujte jednu z vrstev stavebních objektů, kterou využijeme pro zob
     `Výstavba domů před 1919`, `Výstavba domů 1920–1945`, `Výstavba domů 1946–1970`, ... , až po `Výstavba domů po 2016` (v tomto pořadí)
 
 
-- Jako podkladovou mapu přidejte [__Základní topografickou mapu od Zeměměřického úřadu v souřadnicovém systému S-JTSK__]("v prostředi AGOL odpovídá službě 'Základní topografické mapy ČR (S-JTSK)' od uživatele 'Zeměměřický Úřad'"){.color_def .underlined_dotted} nebo [__Ortofotomapu ČR (S-JTSK)__]("v prostředi AGOL odpovídá službě 'Ortofotomapa ČR (S-JTSK' od uživatele 'Zeměměřický Úřad'"){.color_def .underlined_dotted} __(15)__{title="přidání podkladové mapy"}
-
 - Proveďte finální úpravu webové mapy:
     - ve webové mapě __zachovejte pouze relevantní vrstvy a vrstvu zobrazující hranici ORP__ (ostatní vrstvy z mapy odstraňte)
     - __všechny vrstvy vhodně pojmenujte__
@@ -262,7 +260,7 @@ Dále zduplikujte jednu z vrstev stavebních objektů, kterou využijeme pro zob
 12. ![](../assets/cviceni6/overlay_rozsah_vrstva.png){ .no-filter width=700px} omezení výpočtu na rozsah vrstvy
 13. ![](../assets/cviceni6/RUIAN_meritko.png){ .no-filter width=700px} nastavení viditelného rozsahu polygonové vrstvy stavebních objektů
 14. ![](../assets/cviceni6/overlay_rozsah.png){ .no-filter width=700px} omezení výpočtu na rozsah mapového okna
-15. ![](../assets/cviceni03/AGOL_ZTM.png){ .no-filter width=700px} přidání vrstvy jako podkladové mapy
+15. ![](../assets/cviceni6/AGOL_ZTM.png){ .no-filter width=700px} přidání vrstvy jako podkladové mapy
 16. ![](../assets/cviceni6/basemap_transparency.png){ .no-filter width=700px} nastavení průhlednosti podkladové mapy
 17. ![](../assets/cviceni6/mapa_content.png){ .no-filter width=700px} správné pojmenování webové mapy a nastavení sdílení v rámci organizace
 18. ![](../assets/cviceni6/rekr_bod_ukazka.png){ .no-filter width=700px} bodová vrstva rekreačních objektů "Stav_objekty_rekr_BOD"
