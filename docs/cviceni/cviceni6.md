@@ -45,27 +45,56 @@ ZABAGED představuje důležitý zdroj dat pro analýzu území, tvorbu map a 3D
 
 <hr class="level-1"> -->
 
-## Zadání úlohy
+## Zadání úlohy – Analýza území ORP
 
 V prostředí [__ArcGIS Online__](https://www.arcgis.com/){.color_def .underlined_dotted .external_link_icon target="_blank"} vytvořte __2 webové mapy__ pro zadané území (viz individuální zadání níže): 
 
-[**Mapa I**](#mapa-i) bude obsahovat __budovy (stavební objekty) v zadané obci__ __barevně rozlišené dle připojení na kanalizaci a plyn__.
-
-[**Mapa II**](#mapa-ii) bude zobrazovat __rekreační potenciál v zadané ORP pomocí metody intenzity jevu (heat map)__.
+[**Mapa**](#mapa-i) bude obsahovat __budovy (stavební objekty) v zadané ORP__ __barevně rozlišené dle připojení na kanalizaci a plyn__ a dále  __rekreační potenciál pomocí metody intenzity jevu (heat map)__.
 
 ??? task-fg-color "Individuální zadání"
-    - tabulka obcí a ORP
+
+    <div markdown>
+
+    __Vhodné obce s rozšířenou působností__
+    {align="center" style="margin:0px;"}
+
+    |Č.| NÁZEV                     |
+    |---|---------------------------|
+    | 1 | Mladá Boleslav |
+    | 2 | Česká Lípa              |
+    | 3 | Kralovice    |
+    | 4 | Chomutov    |
+    | 5 | Mariánské Lázně             |
+    | 6 | Domažlice                |
+    | 7 | Benešov    |
+    | 8 | Jindřichův Hradec    |
+    | 9 | Náchod    |
+    | 10 | Uherský Brod    |
+    | 11 | Vyškov    |
+    | 12 | Moravská Třebová    |
+    | 13 | Rychnov nad Kněžnou   |
+    | 14 | Vrchlabí    |
+    | 15 | Semily    |
+    | 16 | Nymburk    |
+    | 17 | Rokycany    |
+    | 18 | Rumburk    |
+    | 19 | Stříbro    |
+    | 20 | Vlašim    |
+
+    </div>
 
 
-## Mapa I
+## Mapová aplikace
 
 <div class="annotate" markdown>
 
-- Z ArcGIS Online připojte __polygonovou vrstvu obcí__ (např. z vrstvy *ArcCR 4.2*).
+- Z ArcGIS Online připojte __polygonovou vrstvu ORP__ a __obcí__ (např. z vrstvy *ArcČR v4.3*).
 
-- Nastvte *Definition query* na příslušnou obec, abyste odfiltrovali nepotřebná data.
+- Nastvte *Definition query* na příslušnou ORP, abyste odfiltrovali nepotřebná data. U obcí to můžete provést jak prostorovým (metoda *Have their centre in*), tak atributovým (atribut *Nadřazená ORP*) dotazem.
 
 - Dále přidejte polygonovou vrstvu [__:material-layers-triple: StavebniObjekt__]("Tato vrstva obsahuje polygony všech stavebních objektů v ČR."){.bg .color_def} z mapové služby __:material-layers: RÚIAN__{.bg} z [__Geoportálu ČÚZK__](https://ags.cuzk.gov.cz/geoprohlizec/ "Produkty → RÚIAN"){.color_def .underlined_dotted .external_link_icon target="_blank"}. Vrstvě stavebních objektů vhodně nastavte viditelný rozsah, aby bylo možné stavební objekty zobrazit i v menším měřítku (postačí do úrovně měst). __(3)__{title="přidání vrstvy stavebních objektů"}__(13)__{title="nastavení viditelného rozsahu vrstvy"}
+
+- Pomocí funkce *Select* s nastavenou podmínkou např. *0 = 0* a nastaveným ***Processing extent*** v *Environments* na rozsah mapového okna okolo své ORP můžete z mapové služby vykopírovat data do třídy prvků uložené lokálně.
 
 - Vhodným __nastavením :material-shape-outline: stylu__ vrstvy __barevně odlište jednotlivé stavební objekty__ v zadané obci __dle atributu "Připojení na kanalizační síť"__:
     1. Číselné kódy nejprve seřaďte (vzestupně) a poté je přepište na slovní popisy dle následujícího klíče:    
@@ -95,7 +124,7 @@ __:material-gas-burner: Připojení na rozvod plynu__
 |KÓD| NÁZEV                |
 |---|----------------------|
 | 1 |Plyn z veřejné sítě   |
-| 2 |Plyn z dom. zásobníku |
+| 2x |Plyn z dom. zásobníku |
 | 3 |Bez plynu             |
 | 8 |Nedefinováno          |
 | 9 |Nezjištěno            |
@@ -113,9 +142,11 @@ __:material-gas-burner: Připojení na rozvod plynu__
             - kategoriím typu `bez kanalizace` odpovídajícím nenaplnění jevu nastavte __červenou barvu__{style="color:red;"} __(6)__{title="ukázka správně navržené symbologie"}
 
 
-- Duplikujte vrstvu stavebních objektů a vhodným __nastavením :material-shape-outline: stylu__ nově vytvořené kopie vrstvy __barevně odlište jednotlivé stavební objekty__ v zadané obci __dle atributu "Připojení na rozvod plynu"__ dle kartografických zásad uvedených výše.
+- Duplikujte vrstvu stavebních objektů a vhodným __nastavením :material-shape-outline: stylu__ nově vytvořené kopie vrstvy __barevně odlište jednotlivé stavební objekty__ v zadané obci __dle atributu "Připojení na rozvod plynu"__ dle kartografických zásad uvedených výše. Kategorie začínající dvojkou slučte dohromady (*Group Values*).
 
-- V dané mapě v ArcGIS Pro si ponechte pouze **vrstvu obce a dvě výše vytvořené vrstvy stavebních objektů**, vrstvy označte a vypublikujte do cloudu ArcGIS Online pomocí volby *Share* → *Share as Web Layer* v kontextovém menu. 
+- Duplikujte ještě jednou vrstvu stavebních objektů a zadejte atributový dotaz *ZPUSOBVYUZITIKOD IN ('8','11')*, čímž dojde k výběru pouze budov individuální nebo hromadné rekreace. Tento výběr pak  
+
+- V dané mapě v ArcGIS Pro si ponechte pouze **vrstvu ORP a dvě výše vytvořené vrstvy stavebních objektů**, vrstvy označte a vypublikujte do cloudu ArcGIS Online pomocí volby *Share* → *Share as Web Layer* v kontextovém menu. 
 
 - Tuto vypublikovanou vrstvu poté najděte ve svém obsahu ArcGIS Online (karta Contents) a otevřete v nové webové mapě (**open in Map Viewer**).
 
@@ -123,13 +154,13 @@ __:material-gas-burner: Připojení na rozvod plynu__
 
 <!-- NEFUNGUJE MI TA ZMENA PROJEKCE, U TETO VRSTVY TO TREBA FUNGUJE: geoappext.nrcan.gc.ca/arcgis/rest/services/BaseMaps/CBMT3978/MapServer -->
 
-- Proveďte finální úpravu webové mapy:
+- Proveďte další úpravy dat ve webové mapě:
     - vrstvy klasifikující stavební objekty dle připojení na plyn a kanalizaci seskupte do skupiny *"stavební objekty"* a této skupině __nastavte exkluzivní viditelnost__, aby byla při přepínání viditelná vždy pouze jedna vrstva stavebních objektů __(8)__{title="nastavení exkluzivní viditelnosti skupiny vrstev"}
     - ve webové mapě __zachovejte pouze skupinu vrstev *"stavební objekty"* a vrstvu zobrazující hranice obce__ (ostatní vrstvy z mapy odstraňte)
     - __všechny vrstvy vhodně pojmenujte__
     - u podkladové mapy nastavte vhodnou míru průhlednosti __(16)__{title="nastavení průhlednosti podkladové mapy"}
 
-- __Webovou mapu uložte__ s názvem **Prijmeni_Jmeno_SGEA2025_Mapa1** a __nastavte sdílení v rámci oganizace__. __(17)__{title="ukázka"}
+- __Webovou mapu uložte__.
 
 <figure markdown>
 ![](../assets/cviceni04/Mapa1_result.png){width=700px}
@@ -152,8 +183,7 @@ __:material-gas-burner: Připojení na rozvod plynu__
 
 ---
 
-## Mapa II
-Úkolem je vytvořit mapu, která bude zobrazovat __rekreační potenciál v zadané obci pomocí metody intenzity jevu (heat map)__. Ve webové mapě bude nakonfigurováno vyskakovací okno s grafem, který bude zobrazovat vývoj výstavby domů v této obci.
+Dále zduplikujte jednu z vrstev stavebních objektů, kterou využijeme pro zobrazení __rekreačního potenciálu v zadané ORP pomocí metody intenzity jevu (heat map)__. Ve webové mapě si můžete zkusit také nakonfigurovat vyskakovací okno (pop-up) s grafem, který bude zobrazovat vývoj výstavby domů v této obci.
 
 
 <!--
@@ -179,26 +209,18 @@ __:material-gas-burner: Připojení na rozvod plynu__
 
 -->
 
-- Do prázdné mapy v ArcGIS Online __přidejte polygonovou vrstvu obcí__ [__:material-layers-triple: SGEA_obce_2025__]("Tato vrstva obsahuje polygony území všech obcí v ČR."){.bg .color_def}. __(1)__{title="ukázka polygonové vrstvy obcí"}
-
-- S využitím funkce __:material-filter: filtru__ __znovu omezte vrstvu obcí pouze na zadanou.__ Případně lze použít webovou mapu z minulého příkladu a přeuložit ji pod novým názvem a vrstvy upravit. __(19)__{title="nastavení filtru dle kódu obce"}
-
 <!--
 - S využitím nástroje __prostorové analýzy__ [__:material-tools: Sloučit hranice__]("angl. Dissolve Boundaries"){.bg .color_def} __sloučíme jednotlivé obce do plochy zadané ORP__.__(11)__{title="nastavení parametrů nástroje pro sloučení hranic"}<br>
     *(Tentokrát nemusíme řešit zoom mapového okna a nastavení parametru v *"Nastavení prostředí"*, protože počet zpracovaných obcí je již omezen filtrem. Výsledkem této analýzy získáme oblast, ve které budeme zobrazovat rekreační potenciál)*.
     - V nastavení stylu definuje výsledné vrstvě širší okraj, aby byl rozsah ORP výrazný.__(20)__{title="ukázka výstupu nástroje pro sloučení hranic"}
 -->
 
-- Dále __přidejte bodovou vrstvu budov individuální a hromadné rekreace__ [__:material-layers-triple: Stav_objekty_rekr_BOD__]("tato vrstva obsahuje budovy, jež jsou typu "stavba pro rodinnou rekreaci" (`Způsob využití = 8`) nebo "stavba ubytovacího zařízení" (`Způsob využití = 11`)"){.bg .color_def}. __(18)__{title="ukázka bodové vrstvy rekreačních objektů"}
 
-- S využitím nástroje __prostorové analýzy__ [__:material-tools: Překrýt vrstvy__]("angl. Overlay Layers"){.bg .color_def} __vytvořte vrstvu rekreačních objektů pouze na území zadané obce__.__(21)__{title="nastavení parametrů nástroje překrytí vrstev"}__(22)__{title="ukázka výstupu nástroje překrytí vrstev"}<br>
-    *(Před spuštěním nástroje nastavte parametr __"Nastavení prostředí"__ na __"Vrstva"__  a zvolte vrstvu zadané obce. Tímto omezíte výpočet pouze na rozsah své obce a výrazně tak snížíte cenu výpočtu)* __(12)__{title="omezení výpočtu dle rozsahu vrstvy"}
-
-- Ve __:material-shape-outline: stylu__ nově vzniklé vrstvy rekreačních budov nastavte __symboliku na typ__ __Teplotní mapa__ a __zobrazte intenzitu výskytu rekreačních objektů__ v zadané obci. <br>
+- Ve __:material-shape-outline: stylu__ vrstvy rekreačních budov nastavte __symboliku na typ__ __Teplotní mapa__ a __zobrazte intenzitu výskytu rekreačních objektů__ v zadané obci. <br>
     *(Volitelně můžete nastavit "Oblast vlivu" jednotlivých bodů nebo přenastavit barevnou stupnici a úroveň průhlednosti.)*
 
 <figure markdown>
-![](../assets/cviceni04/HeatMapa.png){width=700px}
+![](../assets/cviceni6/HeatMapa.png){width=700px}
 {align=center}
 <figcaption>tvorba mapy formou metody intenzity jevu (heat-map)</figcaption></figure>
 
@@ -211,10 +233,10 @@ __:material-gas-burner: Připojení na rozvod plynu__
 - Jako podkladovou mapu přidejte [__Základní topografickou mapu od Zeměměřického úřadu v souřadnicovém systému S-JTSK__]("v prostředi AGOL odpovídá službě 'Základní topografické mapy ČR (S-JTSK)' od uživatele 'Zeměměřický Úřad'"){.color_def .underlined_dotted} nebo [__Ortofotomapu ČR (S-JTSK)__]("v prostředi AGOL odpovídá službě 'Ortofotomapa ČR (S-JTSK' od uživatele 'Zeměměřický Úřad'"){.color_def .underlined_dotted} __(15)__{title="přidání podkladové mapy"}
 
 - Proveďte finální úpravu webové mapy:
-    - ve webové mapě __zachovejte pouze vrstvu rekreačních objektů v zadané obci a vrstvu zobrazující hranici obce__ (ostatní vrstvy z mapy odstraňte)
+    - ve webové mapě __zachovejte pouze relevantní vrstvy a vrstvu zobrazující hranici ORP__ (ostatní vrstvy z mapy odstraňte)
     - __všechny vrstvy vhodně pojmenujte__
     - možnost __zobrazit vyskakovací okna__ ponechte __jen u vrstvy obcí__, u zbývajících vrstev tuto možnost vypněte
-    - u podkladové mapy nastavte vhodnou míru průhlednosti __(16)__{title="nastavení průhlednosti podkladové mapy"}
+    - u podkladové mapy můžete nastavit vhodnou míru průhlednosti __(16)__{title="nastavení průhlednosti podkladové mapy"}
 
 
 
@@ -222,7 +244,7 @@ __:material-gas-burner: Připojení na rozvod plynu__
 
 
 <figure markdown>
-![](../assets/cviceni04/Mapa2_result.png){width=700px}
+![](../assets/cviceni6/Mapa2_result.png){width=700px}
 {align=center}
 <figcaption>ukázka výsledné webové mapy</figcaption></figure>
 
@@ -230,10 +252,10 @@ __:material-gas-burner: Připojení na rozvod plynu__
 
 1.  ![](../assets/cviceni04/img01.png){ .no-filter width=700px} polygonová vrstva obcí "SGEA_obce_2025"
 2.  ![](../assets/cviceni04/obce_vyber.png){ .no-filter width=700px} nastavení filtru dle kódu obce
-3.  ![](../assets/cviceni04/RUIAN_all.png){ .no-filter width=700px} vrstva "RÚIAN/StavebniObjekt"
+3.  ![](../assets/cviceni6/RUIAN_all.png){ .no-filter width=700px} vrstva "RÚIAN/StavebniObjekt"
 4.  ![](../assets/cviceni04/overlay.png){ .no-filter width=200px}<br> nastavení parametrů nástroje "Překrýt vrstvy"
 5.  ![](../assets/cviceni04/overlay_result.png){ .no-filter width=700px} výstup nástroje "Překrýt vrstvy" (stavební objekty jsou pouze uvnitř hranice obce)
-6.  ![](../assets/cviceni04/symbologie_kanalizace.png){ .no-filter width=700px} návrh symbologie stavebních objektů dle připojení na kanalizaci
+6.  ![](../assets/cviceni6/symbologie_kanalizace.png){ .no-filter width=700px} návrh symbologie stavebních objektů dle připojení na kanalizaci
 7.  ![](../assets/cviceni04/img07.png){ .no-filter width=700px} změna podkladové mapy (Základní topografická mapa)
 8.  ![](../assets/cviceni04/group_exclusive.png){ .no-filter width=700px} nastavení exkluzivní viditelnosti skupiny vrstev
 9.  __Příklad odevzdaného odkazu:__<br>https://ctuprague.maps.arcgis.com/apps/mapviewer/index.html?webmap=21df15ae2ca9458794a16a8fd9078b78

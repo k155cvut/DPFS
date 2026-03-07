@@ -65,13 +65,13 @@ Závazné geodetické referenční systémy na území ČR upravuje nařízení 
 
 |     Název                         |     Kód EPSG    |     Poznámka                                                                                          |
 |-----------------------------------|:---------------:|-------------------------------------------------------------------------------------------------------|
-|     S-JTSK / Krovak East North    |     5514        |     použito Křovákovo zobrazení,   matem. orientace os, definováno od nultého poledníku Greenwiche    |
+|     S-JTSK / Krovak East North    |     5514        |     použito Křovákovo zobrazení, matem. orientace os, definováno od nultého poledníku Greenwiche    |
 |     WGS 84 (geographic 2D)        |     4326        |     použito zobrazení geografickými   souřadnicemi (také geografická projekce, nebo geographic 2D)    |
-|     WGS 84 / UTM zone 33N         |     32633       |     použito Mercatorovo válcové   konformní zobrazení (UTM zobrazení), základní poledník 15°          |
-|     WGS 84 / UTM zone 34N         |     32634       |     použito Mercatorovo válcové   konformní zobrazení, (UTM zobrazení), základní poledník 21°         |
-|     ETRS89 (geographic 2D)        |     4258        |     použito zobrazení geografickými   souřadnicemi (také geografická projekce, nebo geographic 2D)    |
-|     ETRS89 / TM33                 |     3045        |     použito Mercatorovo válcové   konformní zobrazení (UTM zobrazení), základní poledník 15°          |
-|     ETRS89 / TM34                 |     3046        |     použito Mercatorovo válcové   konformní zobrazení, (UTM zobrazení), základní poledník 21°         |
+|     WGS 84 / UTM zone 33N         |     32633       |     použito transverzální Mercatorovo válcové konformní zobrazení (UTM zobrazení), základní poledník 15°          |
+|     WGS 84 / UTM zone 34N         |     32634       |     použito transverzální Mercatorovo válcové   konformní zobrazení, (UTM zobrazení), základní poledník 21°         |
+|     ETRS89 (geographic 2D)        |     4258        |     použito zobrazení geografickými souřadnicemi (také geografická projekce, nebo geographic 2D)    |
+|     ETRS89 / TM33                 |     3045        |     použito transverzální Mercatorovo válcové   konformní zobrazení (UTM zobrazení), základní poledník 15°          |
+|     ETRS89 / TM34                 |     3046        |     použito transverzální Mercatorovo válcové   konformní zobrazení, (UTM zobrazení), základní poledník 21°         |
 
 Podrobnější infromace ke [Křovákovu zobrazení](https://maps.fsv.cvut.cz/~cajthaml/vyuka/kar1/prednasky/KAR1_pr6.pdf) a [UTM](https://maps.fsv.cvut.cz/~cajthaml/vyuka/kar1/prednasky/KAR1_pr7.pdf) najdete v přednáškách Kartografie 1 (prof. Cajthaml).
 
@@ -133,7 +133,7 @@ Z [Geoprohlížeče ČÚZK](https://ags.cuzk.cz/geoprohlizec/) lze stáhnout da
 ### Texturovaný LAS
 **1.** V některých případech je výhodné mračno bodů obarvit (pokud již texturu neobsahuje v základním nastavení). Stažený LAS z ČÚZK lze otexturovat pomocí ortofota, které se stáhne podobně jako laserová data z [Geoprohlížeče ČÚZK](https://ags.cuzk.cz/geoprohlizec/). Důležité je stáhnout data se stejným kladem, což pro zmíněná data platí.
 
-**2.** Po stažení ortofota vyhledáme v *Geoprocessingu* funkci [*Colorize LAS*](https://pro.arcgis.com/en/pro-app/latest/tool-reference/3d-analyst/colorize-las.htm). Jako *Input Dataset* určímě mračno bodů. Do parametru *Input Image* vložíme vybrané ortofoto a zkontrolujeme přiřazení pásem snímku.
+**2.** Po stažení ortofota vyhledáme v *Geoprocessingu* funkci [*Colorize LAS*](https://pro.arcgis.com/en/pro-app/latest/tool-reference/3d-analyst/colorize-las.htm). Jako *Input Dataset* určíme mračno bodů. Do parametru *Input Image* vložíme vybrané ortofoto a zkontrolujeme přiřazení pásem snímku.
 
 **3.** Dále zvolíme výstupní adresář *Target Folder* a případně specifikujeme název výsledného mračna bodů či jeho kompresi.
 
