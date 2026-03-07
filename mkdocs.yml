@@ -5,7 +5,7 @@ nav:
       - Úvod do práce v prostředí ArcGIS, prostorová data, datové zdroje, atributová tabulka, atributové dotazy: cviceni/cviceni1.md
       - Vektorová data, prostorové dotazy, prostorové funkce (geoprocessing): cviceni/cviceni2.md
       - Práce s digitálním modelem terénu: cviceni/cviceni3.md
-      - Práce s externími daty (Excel, CSV), join: cviceni/cviceni4x.md
+      - Práce s externími daty (Excel, CSV), join: cviceni/cviceni4_docasne.md
       - Práce s geoportály a webovými mapovými službami: cviceni/cviceni5.md
       - ArcGIS Online, analýza území a tvorba webové mapy: cviceni/cviceni6.md
 
